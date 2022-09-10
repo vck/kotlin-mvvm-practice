@@ -38,7 +38,6 @@ class MainActivity : ComponentActivity() {
             HelloComposeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
 
@@ -64,41 +63,41 @@ class MainActivity : ComponentActivity() {
                                 style = MaterialTheme.typography.h4
                             )
                         }
-
-
-                        Spacer(
-                            modifier = Modifier.height(16.dp)
-                        )
+                    }
+                    Column(
+                        modifier = Modifier
+                            .fillMaxHeight()
+                            .padding(top = 100.dp)
+                    ){
                         Button(
                             onClick = { viewModel.onAdd() } ,
-                            modifier = Modifier.align(Alignment.BottomCenter).padding(40.dp))
-                        {
-                            Text(text = "Counter ++")
-                        }
-
-
-                        Spacer(
-                            modifier = Modifier.height(16.dp)
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 1.dp, horizontal = 15.dp),
                         )
+                        {
+                            Text(text = "Add Counter")
+                        }
 
                         Button(
                             onClick = { viewModel.onReset() } ,
-                            modifier = Modifier.align(Alignment.BottomCenter).padding(10.dp))
-                        {
-                            Text(text = "Reset")
-                        }
-
-                        Spacer(
-                            modifier = Modifier.height(16.dp)
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 1.dp, horizontal = 15.dp),
                         )
+                        {
+                            Text(text = "Reset State")
+                        }
 
                         Button(
                             onClick = { viewModel.onRandomNumber() } ,
-                            modifier = Modifier.align(Alignment.BottomCenter).padding(10.dp))
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 1.dp, horizontal = 15.dp),
+                        )
                         {
-                            Text(text = "Random")
+                            Text(text = "Generate Random Number")
                         }
-
                     }
                 }
             }
